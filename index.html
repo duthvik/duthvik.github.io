@@ -67,6 +67,7 @@
       display: block;
       margin: auto;
       border: 3px solid #1a73e8;
+      cursor: pointer;
     }
     img.inline {
       max-width: 150px;
@@ -74,6 +75,7 @@
       border-radius: 5px;
       margin-right: 20px;
       border: 2px solid #1a73e8;
+      cursor: pointer;
     }
     .volunteer-role, .research-project {
       display: flex;
@@ -92,6 +94,7 @@
       border-radius: 5px;
       margin-right: 20px;
       border: 2px solid #1a73e8;
+      cursor: pointer;
     }
     .volunteer-details, .research-details {
       overflow: hidden;
@@ -117,14 +120,55 @@
     .section-content {
       margin-bottom: 30px;
     }
+    /* Modal CSS */
+    .modal {
+      display: none; 
+      position: fixed; 
+      z-index: 1; 
+      padding-top: 60px; 
+      left: 0;
+      top: 0;
+      width: 100%; 
+      height: 100%; 
+      overflow: auto; 
+      background-color: rgb(0,0,0); 
+      background-color: rgba(0,0,0,0.9); 
+    }
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    @media only screen and (max-width: 700px) {
+      .modal-content {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div style="text-align:center;">
-      <img src="images/mepic1.jpg" alt="profile photo" class="profile hoverZoomLink">
+      <img src="images/mepic4.png" alt="profile photo" class="profile hoverZoomLink" onclick="openModal(this)">
       <p class="name">Ruthvik Dugyala</p>
-      <p>I am a senior at Dougherty Valley High School with a passion for AI and robotics.</p>
+      <p>Senior at Dougherty Valley High School with a passion for AI and robotics.</p>
       <p class="email">Email: <a href="mailto:ruthvikd2@gmail.com">ruthvikd2@gmail.com</a></p>
     </div>
   </div>
@@ -133,25 +177,22 @@
     <h1 class="section-title">Research</h1>
     <div class="section-content">
       <div class="research-project">
-        <!-- <img src="path/to/your/agricultural_robot_image.jpg" alt="Agricultural Robot" class="inline"> -->
+        <div class="research-details">
+          <h2>Computer Vision Models</h2>
+          <p><strong>Institution:</strong> Inspirit AI - Working with mentors from Stanford and UPenn</p>
+          <p><strong>Year:</strong> August 2023 - Present</p>
+          <p><strong>Description:</strong> Working on developing a computer vision model to classify various objects with high accuracy. This involves training deep learning models on large datasets, experimenting with different models like the YOLO model, and fine-tuning hyperparameters to enhance performance. The research also includes conducting thorough analysis to understand the limitations of current models and exploring new techniques to overcome these challenges. The ultimate aim is to improve the accuracy and reliability of object classification systems used in real-world applications.</p>
+        </div>
+      </div>
+      <div class="research-project">
         <div class="research-details">
           <h2>Agricultural Robot, Patent in Progress</h2>
           <p><strong>Year:</strong> July 2023 - Present</p>
           <p><strong>Description:</strong> Developing a patent for an innovative agricultural robot specifically designed to efficiently harvest cruciferous plants. This project involves designing robotic arms, implementing machine learning algorithms for plant recognition, and optimizing harvesting techniques to minimize crop damage and increase yield. The goal is to create a cost-effective, scalable solution that can be adopted by farmers to improve productivity and reduce labor costs.</p>
         </div>
       </div>
-      <div class="research-project">
-        <!-- <img src="path/to/your/computer_vision_image.jpg" alt="Computer Vision Models" class="inline"> -->
-        <div class="research-details">
-          <h2>Computer Vision Models</h2>
-          <p><strong>Institution:</strong> Inspirit AI</p>
-          <p><strong>Year:</strong> August 2023 - Present</p>
-          <p><strong>Description:</strong> Working on developing a computer vision model to classify various objects with high accuracy. This involves training deep learning models on large datasets, experimenting with different models like the YOLO model, and fine-tuning hyperparameters to enhance performance. The research also includes conducting thorough analysis to understand the limitations of current models and exploring new techniques to overcome these challenges. The ultimate aim is to improve the accuracy and reliability of object classification systems used in real-world applications.</p>
-        </div>
-      </div>
     </div>
   </div>
-
 
   <div class="container">
     <h1 class="section-title">My Journey with VEX Robotics</h1>
@@ -162,7 +203,7 @@
       </div>
       <p>As the lead programmer and co-captain of my VEX Robotics team, I have played a crucial role in both the technical and strategic aspects of our projects. My responsibilities include:</p>
       <ul>
-        <li><strong>Programming:</strong> Developing custom motion algorithms and optimizing code for our robots to ensure peak performance and consistant autoonnomous routines during competitions.</li>
+        <li><strong>Programming:</strong> Developing custom motion algorithms and optimizing code for our robots to ensure peak performance and consistent autonomous routines during competitions.</li>
         <li><strong>Strategic Planning:</strong> Participating in the design and strategy planning sessions to enhance our competitive edge.</li>
       </ul>
       <h2>Awards and Achievements</h2>
@@ -185,7 +226,7 @@
         </li>
         <li><strong>x2 Division Finalists, U.S Open Championship</strong><br>
           <em>Year:</em> 2023 & 2024<br>
-          <em>Description:</em> Finalsits at the National Event
+          <em>Description:</em> Finalists at the National Event.
         </li>
         <li><strong>Excellence Award</strong><br>
           <em>Year:</em> 2022<br>
@@ -238,6 +279,24 @@
     </div>
   </div>
 
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+  </div>
 
+  <script>
+    function openModal(element) {
+      var modal = document.getElementById("myModal");
+      var modalImg = document.getElementById("img01");
+      modal.style.display = "block";
+      modalImg.src = element.src;
+    }
+
+    function closeModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    }
+  </script>
 </body>
 </html>
