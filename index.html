@@ -28,7 +28,6 @@
     }
     h1, h2 {
       margin-bottom: 20px;
-      
     }
     h1 {
       color: #1a73e8;
@@ -121,19 +120,49 @@
     .section-content {
       margin-bottom: 30px;
     }
+    .tagline {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 12px auto;
+      color: #444;
+    }
+    .meta {
+      color: #1a73e8;
+      font-weight: 700;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 8px;
+    }
+    .tag {
+      background: #e8f0fe;
+      color: #1a73e8;
+      border: 1px solid #1a73e8;
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 0.85em;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
     /* Modal CSS */
     .modal {
-      display: none; 
-      position: fixed; 
-      z-index: 1; 
-      padding-top: 60px; 
+      display: none;
+      position: fixed;
+      z-index: 1;
+      padding-top: 60px;
       left: 0;
       top: 0;
-      width: 100%; 
-      height: 100%; 
-      overflow: auto; 
-      background-color: rgb(0,0,0); 
-      background-color: rgba(0,0,0,0.9); 
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.9);
     }
     .modal-content {
       margin: auto;
@@ -158,9 +187,9 @@
       cursor: pointer;
     }
     @media only screen and (max-width: 700px) {
-      .modal-content {
-        width: 100%;
-      }
+      .modal-content { width: 100%; }
+      .research-project, .volunteer-role { flex-direction: column; align-items: flex-start; }
+      .research-project img, .volunteer-role img { margin-bottom: 12px; }
     }
   </style>
 </head>
@@ -169,74 +198,140 @@
     <div style="text-align:center;">
       <img src="images/mepic4.png" alt="profile photo" class="profile hoverZoomLink" onclick="openModal(this)">
       <p class="name">Ruthvik Dugyala</p>
-      <p>Senior at Dougherty Valley High School with a passion for AI and robotics.</p>
+      <p class="tagline">Robotics Engineering Technology junior at <strong>Purdue University</strong>, building robots that perceive and act in the real world &mdash; humanoid manipulation, computer-vision perception, and mechanical design.</p>
       <p class="email">Email: <a href="mailto:ruthvikd2@gmail.com">ruthvikd2@gmail.com</a></p>
+      <div class="tags">
+        <span class="tag">Robotics</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">ROS 2</span>
+        <span class="tag">Isaac Sim</span>
+        <span class="tag">SolidWorks</span>
+        <span class="tag">Python / C++</span>
+      </div>
     </div>
   </div>
 
   <div class="container">
-    <h1 class="section-title">Research</h1>
+    <h1 class="section-title">Research &amp; Experience</h1>
+    <div class="section-content">
+
+      <div class="research-project">
+        <div class="research-details">
+          <h2>Undergraduate Robotics Researcher &mdash; Dr. Xiumin Diao, Purdue University</h2>
+          <p><span class="meta">August 2026 - Present</span></p>
+          <p><strong>Description:</strong> Developing the perception and manipulation stack for a humanoid robot that senses, grasps, and completes tasks in unstructured real-world environments, working alongside graduate researchers. Building a high-fidelity digital twin and training/validating control and manipulation policies in <strong>NVIDIA Omniverse</strong> using <strong>Isaac Sim</strong> for sim-to-real transfer. Also contributing to the mechanical design and fabrication of custom actuators for the robot's joints &mdash; cutting cost versus off-the-shelf units and giving full control over torque, size, and performance.</p>
+        </div>
+      </div>
+
+      <div class="research-project">
+        <div class="research-details">
+          <h2>FloraBot &mdash; Autonomous Indoor Plant-Care Robot (Personal Project)</h2>
+          <p><span class="meta">May 2026 - Present</span></p>
+          <p><strong>Description:</strong> Built the end-to-end computer-vision and perception stack: a custom-trained <strong>YOLOv11</strong> plant detector with <strong>ByteTrack</strong> multi-object tracking for stable per-plant identity, fused with an <strong>Intel RealSense D435</strong> depth camera (3D pinhole deprojection) into a SLAM-ready plant registry anchored to world-map coordinates. Added zero-shot species identification with the <strong>BioCLIP</strong> foundation model across 140+ classes, built as modular, unit-tested, ROS 2-ready Python driving a differential-drive base with an inverse-kinematics watering arm.</p>
+        </div>
+      </div>
+
+      <div class="research-project">
+        <div class="research-details">
+          <h2>Robotics Research Intern &mdash; Abundant (Y Combinator-backed)</h2>
+          <p><span class="meta">March 2025 - August 2025</span></p>
+          <p><strong>Description:</strong> Implemented low-level control via calibrated SCServo actuators and dev/tty interface routing to fine-tune motor performance for teleoperated and autonomous operation using <strong>LeRobot</strong> and Phosphobot's VR-integrated stack. Built Python visualization tooling for real-time performance debugging and fabricated Fusion 360 camera mounts to expand perception and data collection.</p>
+        </div>
+      </div>
+
+      <div class="research-project">
+        <div class="research-details">
+          <h2>Agricultural Robot &mdash; SHIELD (Patent Pending, 63/742,004)</h2>
+          <p><span class="meta">July 2023 - July 2025</span></p>
+          <p><strong>Description:</strong> Co-authored a patent application for SHIELD, a robotic system to automate cruciferous-crop cultivation from soil preparation to harvest. Architected the system's sensor arrays (LiDAR, cameras, electrochemical), autonomous control logic, and modular attachments for irrigation, planting, and harvesting.</p>
+        </div>
+      </div>
+
+      <div class="research-project">
+        <div class="research-details">
+          <h2>Computer Vision Models Research &mdash; Inspirit AI</h2>
+          <p><span class="meta">August 2023 - January 2025</span> (mentors from Stanford &amp; UPenn)</p>
+          <p><strong>Description:</strong> Designed and implemented a custom YOLO-based object-detection model in PyTorch, modifying the architecture for high-speed detection and using Intersection over Union (IoU) and Non-Maximum Suppression (NMS) to evaluate bounding-box accuracy.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="section-title">Purdue Robotics Teams</h1>
     <div class="section-content">
       <div class="research-project">
         <div class="research-details">
-          <h2>Computer Vision Models</h2>
-          <p><strong>Institution:</strong> Inspirit AI - Working with mentors from Stanford and UPenn</p>
-          <p><strong>Year:</strong> August 2023 - Present</p>
-          <p><strong>Description:</strong> Working on developing a computer vision model to classify various objects with high accuracy using python. This involves training deep learning models on large datasets, experimenting with different models like the YOLO model, and fine-tuning hyperparameters to enhance performance. The research also includes conducting thorough analysis to understand the limitations of current models and exploring new techniques to overcome these challenges. The ultimate aim is to improve the accuracy and reliability of object classification systems used in real-world applications.</p>
+          <h2>Team Lead &mdash; Purdue Railside Robotics (Combat Robotics)</h2>
+          <p><span class="meta">August 2025 - Present</span></p>
+          <p><strong>Description:</strong> Design and model combat-robot drivetrain, chassis, and weapon-system components in <strong>SolidWorks</strong>, producing manufacturable CAD for 3D printing and machining; machine parts on a CNC mill and lead mechanical integration of motors, ESCs, batteries, and wiring.</p>
         </div>
       </div>
       <div class="research-project">
         <div class="research-details">
-          <h2>Agricultural Robot, Patent in Progress</h2>
-          <p><strong>Year:</strong> July 2023 - Present</p>
-          <p><strong>Description:</strong> Developing a patent for an innovative agricultural robot specifically designed to efficiently harvest cruciferous plants. This project involves designing robotic arms, implementing machine learning algorithms for plant recognition, and optimizing harvesting techniques to minimize crop damage and increase yield. The goal is to create a cost-effective, scalable solution that can be adopted by farmers to improve productivity and reduce labor costs.</p>
+          <h2>Drivetrain Team Member &mdash; Purdue Lunabotics (NASA Competition)</h2>
+          <p><span class="meta">August 2025 - Present</span></p>
+          <p><strong>Description:</strong> Design drivetrain components and assemblies in SolidWorks for a NASA Lunabotics competition robot; use <strong>MATLAB</strong> to optimize wheel/grouser parameters for soil traction and manufacture components on a lathe.</p>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1 class="section-title">Skills</h1>
+    <div class="section-content skills-grid">
+      <ul>
+        <li><strong>Programming:</strong> Python, C++, C, Java, C#, Git</li>
+        <li><strong>Machine Learning &amp; Vision:</strong> PyTorch, TensorFlow, Deep Learning, OpenCV, Object Detection, BioCLIP</li>
+        <li><strong>Robotics &amp; Systems:</strong> ROS / ROS 2, Linux, SLAM, Intel RealSense, NVIDIA Isaac Sim, LeRobot, Robotics Control</li>
+        <li><strong>Design &amp; Engineering:</strong> SolidWorks, Fusion 360, NX, 3D Modeling, Physics Simulation, Manufacturing, Arduino</li>
+      </ul>
     </div>
   </div>
 
   <div class="container">
     <h1 class="section-title">My Journey with VEX Robotics</h1>
     <div class="section-content">
-      <p>I began my robotics journey in elementary school with the Raspberry Pi. After winning my first competition in FLL (FIRST Lego League), I advanced to VEX Robotics, where my passion continued to expand</p>
+      <p>I began my robotics journey in elementary school with the Raspberry Pi. After winning my first competition in FLL (FIRST Lego League), I advanced to VEX Robotics, where my passion continued to grow.</p>
       <h2>Leadership Roles</h2>
       <div class="image-container">
         <img src="images/leadershipthing.jpeg" alt="Leadership Role Image 1" class="inline" onclick="openModal(this)">
       </div>
-      <p>As the lead programmer and co-captain of my VEX Robotics team in Dublin, CA, Played a crucial role in both the technical and strategic aspects of our projects.</p>
+      <p>As the lead programmer and co-captain of my VEX Robotics team in Dublin, CA, I played a crucial role in both the technical and strategic aspects of our projects.</p>
       <ul>
-        <li><strong>Programming:</strong> Developed custom motion algorithms using C++ from scratch and optimized all of the code for all of our robots to ensure peak performance and consistent autonomous routines during competitions.</li>
-        <li><strong>Strategic Planning:</strong> Participated in the design and strategy planning sessions to enhance our competitive edge.</li>
+        <li><strong>Programming:</strong> Developed custom motion algorithms using C++ from scratch and optimized the code across all our robots for peak performance and consistent autonomous routines during competitions.</li>
+        <li><strong>Strategic Planning:</strong> Led design and strategy planning sessions to enhance our competitive edge.</li>
       </ul>
       <h2>Awards and Achievements</h2>
       <div class="image-container">
         <img src="images/nationals_image.jpeg" alt="Awards and Achievements Image" class="inline" onclick="openModal(this)">
       </div>
-      <p>Our team's hard work and dedication have been recognized through several prestigious awards:</p>
+      <p>Our team's work has been recognized through several prestigious awards:</p>
       <ul>
         <li><strong>Think Award at VEX AI World Championship, Houston, Texas (Highest Programming Award)</strong><br>
           <em>Year:</em> June 2024<br>
-          <em>Description:</em> This award is presented to a team that has developed and implemented quality robot programming as part of their strategy to solve the game challenge.
+          <em>Description:</em> Presented to a team that developed and implemented quality robot programming as part of its strategy to solve the game challenge.
         </li>
         <li><strong>Skills Champion Award (Ranked 12/7000 teams globally)</strong><br>
           <em>Year:</em> February 2024<br>
-          <em>Description:</em> Awarded for the highest autonomous and driver skills challenge score, showcasing our robot's capabilities when performing individually.
+          <em>Description:</em> Awarded for the highest autonomous and driver skills challenge score, showcasing our robot's capabilities individually.
         </li>
-        <li><strong>Two time Division Finalists, U.S Open Championship, Iowa</strong><br>
-          <em>Year:</em> March 2023 & 2024<br>
+        <li><strong>Two-time Division Finalists, U.S. Open Championship, Iowa</strong><br>
+          <em>Year:</em> March 2023 &amp; 2024<br>
           <em>Description:</em> Finalists at the National Event.
         </li>
         <li><strong>Two Regional Tournament Champion awards, Ceres and Dublin, CA</strong><br>
-          <em>Year:</em> October 2023 & February 2024<br>
-          <em>Description:</em> This award is presented to each of the team who is 1st place at the event.
+          <em>Year:</em> October 2023 &amp; February 2024<br>
+          <em>Description:</em> Presented to the 1st-place team at the event.
         </li>
         <li><strong>Excellence Award in Regional Competition, Ceres, CA</strong><br>
           <em>Year:</em> October 2022<br>
-          <em>Description:</em> The Excellence Award is the highest honor given to a team that exemplifies overall excellence in building a high-quality robotics program. This includes the robot's performance, design, and the team's dedication.
+          <em>Description:</em> The highest honor given to a team that exemplifies overall excellence in building a high-quality robotics program &mdash; robot performance, design, and team dedication.
         </li>
         <li><strong>Two Design Awards in Regional Competition, Modesto and Palo Alto, CA</strong><br>
           <em>Year:</em> December 2021<br>
-          <em>Description:</em> This award was given for our innovative and efficient robot design that demonstrated exceptional engineering principles and design processes.
+          <em>Description:</em> Given for an innovative, efficient robot design demonstrating exceptional engineering principles and design processes.
         </li>
       </ul>
     </div>
@@ -248,9 +343,9 @@
       <div class="volunteer-role">
         <img src="images/StemAidLogo.jpg" alt="Stem Aid Initiative" class="inline" onclick="openModal(this)">
         <div class="volunteer-details">
-          <h2>VP/Co-founder, Stem Aid Initiative, San Ramon, CA</h2>
+          <h2>VP / Co-founder, Stem Aid Initiative, San Ramon, CA</h2>
           <p><strong>Year:</strong> June 2024 - Present</p>
-          <p><strong>Description:</strong> Co-founded a non-profit organization dedicated to supporting stem cell research through fundraising and awareness campaigns. Organizing and managing donation drives, raising funds to support cutting-edge research projects. Oversaw the creation of marketing materials and online platforms to increase public awareness and engagement. Our organization is advised by a professor from Harvard Medical School</p>
+          <p><strong>Description:</strong> Co-founded a non-profit dedicated to supporting stem cell research through fundraising and awareness campaigns &mdash; organizing donation drives, creating marketing materials, and building online platforms to increase engagement. Advised by a professor from Harvard Medical School.</p>
           <p><strong>Website:</strong> <a href="https://www.stemaidinitiative.org/">https://www.stemaidinitiative.org/</a></p>
         </div>
       </div>
@@ -259,7 +354,7 @@
         <div class="volunteer-details">
           <h2>Director, Tech Global Robotics Organization</h2>
           <p><strong>Year:</strong> May 2024 - Present</p>
-          <p><strong>Description:</strong> Leading a non-profit organization focused on teaching robotics to children. Coordinated fundraising efforts, successfully collecting funds to support underprivileged children in India.</p>
+          <p><strong>Description:</strong> Lead a non-profit focused on teaching robotics to children; coordinated fundraising to support underprivileged children in India.</p>
         </div>
       </div>
       <div class="volunteer-role">
@@ -267,16 +362,16 @@
         <div class="volunteer-details">
           <h2>Volunteer, Isha Foundation, CA</h2>
           <p><strong>Year:</strong> June 2015 - Present</p>
-          <p><strong>Description:</strong> Assisted in organizing free yoga programs within the community, promoting health and wellness. Distributed promotional materials and collected participant contact information for follow-up and engagement. Coordinated with my school administration to successfully organize the first Isha Yoga program at my school.</p>
+          <p><strong>Description:</strong> Helped organize free yoga programs promoting health and wellness, and coordinated with school administration to run the first Isha Yoga program at my school.</p>
         </div>
       </div>
       <div class="volunteer-role">
         <img src="images/savesoilvoolunteering.jpeg" alt="Save Soil" class="inline" onclick="openModal(this)">
-        <img src="images/SaveSoilVolunteering.jpeg" alt="Save SOil" class="inline" onclick="openModal(this)">
+        <img src="images/SaveSoilVolunteering.jpeg" alt="Save Soil" class="inline" onclick="openModal(this)">
         <div class="volunteer-details">
           <h2>Volunteer, Save Soil Movement, San Francisco, CA</h2>
           <p><strong>Year:</strong> March 2022 - Present</p>
-          <p><strong>Description:</strong> Promoted soil health awareness by educating friends and family on the importance of soil conservation and its effect on climate change. Volunteered at the Save Soil walkathon in San Francisco, engaging young children with educational quizzes and assisting with booth setup. Played music at events to attract and engage attendees.</p>
+          <p><strong>Description:</strong> Promoted soil-health awareness and volunteered at the Save Soil walkathon in San Francisco &mdash; engaging children with educational quizzes, assisting with booth setup, and playing music at events.</p>
           <p><strong>Website:</strong> <a href="https://consciousplanet.org/en/save-soil">https://consciousplanet.org/en/save-soil</a></p>
         </div>
       </div>
@@ -287,13 +382,13 @@
     <h1 class="section-title">Hobbies</h1>
     <div class="section-content">
       <div class="volunteer-role">
-        <img src="" alt="music" class="inline" onclick="openModal(this)">
         <div class="volunteer-details">
           <h2>Music</h2>
-          <p>I have been playing the drums since my childhood and have been in the school band for 7 years. I also play the tabla, a classical Indian instrument, at cultural events.</p>
-          <p><strong>Youtube:</strong> <a href="https://www.youtube.com/@SrvikMusic">https://www.youtube.com/@SrvikMusic</a></p>
+          <p>I have played the drums since childhood and was in the school band for 7 years. I also play the tabla, a classical Indian instrument, at cultural events.</p>
+          <p><strong>YouTube:</strong> <a href="https://www.youtube.com/@SrvikMusic">https://www.youtube.com/@SrvikMusic</a></p>
         </div>
       </div>
+    </div>
   </div>
 
   <!-- The Modal -->
@@ -309,10 +404,8 @@
       modal.style.display = "block";
       modalImg.src = element.src;
     }
-
     function closeModal() {
-      var modal = document.getElementById("myModal");
-      modal.style.display = "none";
+      document.getElementById("myModal").style.display = "none";
     }
   </script>
 </body>
